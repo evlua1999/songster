@@ -1,2 +1,3 @@
 credentials.py
 generate-cards/__pycache__/*
+generate-cards/files/*
