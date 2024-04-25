@@ -13,8 +13,8 @@ class Song():
         self.id = id
 
     def toDict(self):
-        return {'name': "{" + self.name.replace("&", "\&") + "}",
-                'artist': "{" + self.artist.replace("&", "\&") + "}",
-                'year': "{" + self.year + "}",
-                'link': "{" + self.link.replace("&", "\&") + "}"
+        return {'name': self.name,
+                'artist': self.artist,
+                'year': self.year,
+                'link': self.link
                 }

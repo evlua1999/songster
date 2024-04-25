@@ -53,17 +53,9 @@ class MainActivity : ComponentActivity() {
             SongsterTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    OutlinedButton(onClick = { if (loggedIn){ handleCameraPermission()}else{ logIn()} }) {
-                       Column (verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
-                        if (loggedIn && firstGame) {
-                            Text(text = "Start Game")
-                            firstGame = false
-                        } else if(!firstGame){
-                            Text(text = "Next Song")
-                        } else {
-                            Text(text = "Log In and Start")
-                            firstGame = false
-                        }
+                    Column (verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
+                        OutlinedButton(onClick = { if (loggedIn){ handleCameraPermission()}else{ logIn()} }) {
+                            Text(text = "Scan Card!")
                        }
                     }
                 }
@@ -111,9 +103,10 @@ class MainActivity : ComponentActivity() {
             Toast.makeText(this@MainActivity, "Cancelled", Toast.LENGTH_LONG).show()
         } else {
             Log.d("songster", result.contents)
-            val type = result.contents.split('/')[4]
-            val id = result.contents.split('/')[5].split('?')[0]
-
+            var type = result.contents.split('/')[3]
+            var id = result.contents.split('/')[4].split('?')[0]
+            Log.d("songster", id)
+            Log.d("songster", type)
             spotifyAppRemote?.playerApi?.play("spotify:"+type+":"+id)
 
         }
