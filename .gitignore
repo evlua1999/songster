@@ -1,3 +1,7 @@
 credentials.py
 generate-cards/__pycache__/*
 generate-cards/files/*
+app/.idea/*
+app/.gradle/*
+app/songster/.idea/*
+app/songster/.gradle/*
